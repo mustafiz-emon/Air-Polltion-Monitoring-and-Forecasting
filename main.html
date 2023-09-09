@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Air Pollution Monitoring & Forecasting System</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+        .body {
+           
+            background: linear-gradient(rgb(100, 96, 89) 21.15%, rgb(66, 61, 49) 57.81%); height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff !important;
+        }
+        .font-size-8{
+            font-size: .8rem;
+        }
+
+        .selected {
+            background-color: #363640;
+        }
+
+        .shadow {
+            box-shadow: 0 .5rem 1rem rgba(255,255,255,.15) !important;
+        }
+
+        .ms-bg {
+            background-image: url("https://assets.msn.com/weathermapdata/1/static/images/webps/v1.0/hazy_day.webp");
+        }
+
+        .pol-bg {
+            color: rgb(255, 255, 255);
+            background: rgba(255, 255, 255, 0.04);
+            height: 250px;
+        }
+
+        .border-5 {
+            border-width: 12px !important;
+        }
+
+        .light-green {
+            color: #76ff03 !important;
+            border-color: #76ff03 !important;
+        }
+
+        .border-light {
+            border-color: #ffffff3f !important;
+        }
+
+        .table {
+            background: #4e4e57;
+        }
+
+        .sticky-top-2 {
+            position: sticky !important;
+            top: 140px !important;
+        }
+    </style>
+
+  </head>
+  <body class="body">
+    <nav class="navbar bg-dark sticky-top">
+        <div class="container-fluid d-flex justify-content-center">
+            <span class="navbar-text text-light fs-1 text-center">
+            Air Pollution Monitoring and Forecasting System
+            </span>
+        </div>
+    </nav>
+    <div class="body" style="height:48px; width: 100%; z-index: 1000; position:fixed; top:92px;">
+
+    </div>
+    <div class="container  my-5 sticky-top-2">
+        <div class="body">
+            <div class="row gap-5">
+                
+                    <div class="col shadow rounded p-2 ms-bg">
+                        <div class="row">
+                            <div class="col text-center fw-bold fs-5">
+                                Current weather
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center d-flex flex-column justify-content-center align-items-center">
+                                <img class="weather-icon" src="" alt="">
+                            </div>
+                            <div class="col d-flex flex-column justify-content-start align-items-start">
+                                <span class="h1 temp"></span>
+                                <span class="fw-bold weather-desc"></span>
+                            </div>
+                        </div>
+                        <div class="row font-size-8 text-center mt-3">
+                            <div class="col">
+                                Wind
+                            </div>
+                            <div class="col">
+                                Humidity
+                            </div>
+                            <div class="col">
+                                Feels like
+                            </div>
+                            <div class="col">
+                                Visibility
+                            </div>
+                        </div>
+                        <div class="row font-size-8 fw-bold text-center">
+                            <div class="col wind-speed"></div>
+                            <div class="col humidity"></div>
+                            <div class="col feels-like"></div>
+                            <div class="col visibility"></div>
+                        </div>
+                        <div class="row font-size-8 mt-2 text-center">
+                            <div class="col">
+                                UV
+                            </div>
+                            <div class="col">
+                                Pressure
+                            </div>
+                            <div class="col">
+                                Precipitation
+                            </div>
+                            <div class="col">
+                                
+                            </div>
+                        </div>
+                        <div class="row font-size-8 fw-bold text-center">
+                            <div class="col uv"></div>
+                            <div class="col pressure"></div>
+                            <div class="col precipitation"></div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                    <div class="col rounded shadow p-2 px-5 pol-bg">
+                        <div class="row mb-3">
+                            <div class="col text-center fw-bold fs-5 mb-2">
+                                Details
+                            </div>
+                        </div>
+                        <div class="infos">
+                            <div class="row">
+                                <div class="col fw-bold text-start">O3 (ppb)</div>
+                                <div class="col o3 text-end"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col fw-bold text-start">CO (ppm)</div>
+                                <div class="col co text-end"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col fw-bold text-start">SO2 (μg/m³)</div>
+                                <div class="col so2 text-end"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col fw-bold text-start">NO2 (μg/m³)</div>
+                                <div class="col no2 text-end"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col fw-bold text-start">PM 2.5 (μg/m³)</div>
+                                <div class="col pm25 text-end"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col fw-bold text-start">PM 10 (μg/m³)</div>
+                                <div class="col pm10 text-end"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col rounded shadow p-2 pol-bg">
+                        <div class="row">
+                            <div class="col text-center fw-bold fs-5">
+                                Poluted
+                            </div>
+                            <div class="mt-3">
+                                <div class="rounded-circle border border-5 text-center mx-auto d-flex justify-content-center align-items-center fw-bold fs-5 polution-status" style="height:150px; width:150px;">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+            
+            </div>
+            <div class="d-flex justify-content-around mt-5 mb-5 gap-5">
+                <div class="p-2 rounded">
+                    <iframe width="500" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2263585/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+                <p style="font-size: x-small;"><em>400ppm - 750ppm: Good for health, 750 ppm - 1200 ppm: Take care, 1200 ppm (and above): Harmful to health</em></p>
+                </div>
+                <div class="p-2 rounded">
+                    <iframe width="500" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2263585/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+                    <p style="font-size: x-small;"><em>Normal Range is 0 to 199, Harmful gases concentrations ranging from 200 to 10000 ppm</em></p>
+                </div>
+
+            </div>
+            <div class="d-flex justify-content-around mt-5 mb-5 gap-5">
+                <div class="p-2 rounded">
+                    <iframe width="500" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2263585/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="shadow p-2 mt-4" style="background: #4e4e57; min-height:120vh;">
+                <div class="table mb-5">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <script src="main.js"></script>
+  </body>
+</html>
